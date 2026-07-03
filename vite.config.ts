@@ -12,4 +12,6 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Skip Nitro SSR — deploying as static SPA to Hostinger shared hosting
+  nitro: false,
 });
