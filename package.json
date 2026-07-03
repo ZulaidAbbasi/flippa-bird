@@ -7,7 +7,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "build:static": "vite build && node scripts/build-static.mjs",
+    "build:static": "vite build --config vite.spa.config.ts && node -e \"const fs=require('fs');const p=require('path');const d=p.join(process.cwd(),'deploy');fs.renameSync(p.join(d,'spa-index.html'),p.join(d,'index.html'));fs.copyFileSync(p.join(process.cwd(),'public','favicon.ico'),p.join(d,'favicon.ico'));fs.copyFileSync(p.join(process.cwd(),'public','.htaccess'),p.join(d,'.htaccess'));console.log('Done: deploy/ ready')\"",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
